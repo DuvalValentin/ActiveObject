@@ -9,6 +9,6 @@ public class Afficheur implements ObserverDeCapteur{
 	public void update(Capteur c) throws InterruptedException, ExecutionException 
 	{
 		value=c.getValue();
-		System.out.println(value);
+		System.out.println(this+" : "+value);
 	}
 }

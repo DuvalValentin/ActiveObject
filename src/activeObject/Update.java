@@ -6,18 +6,18 @@ import java.util.concurrent.ExecutionException;
 public class Update implements Callable<Integer> //FIXME régler le type d'update
 {
 	private Canal canal ;
-	private ObserverDeCapteur ObserverDeCapteur;
+	private ObserverDeCapteur observerDeCapteur;
 	
 	public Update(Canal canal, ObserverDeCapteur observerDeCapteur) 
 	{
 		this.canal=canal;
-		this.ObserverDeCapteur=observerDeCapteur;
+		this.observerDeCapteur=observerDeCapteur;
 	}
 	
 	@Override
 	public Integer call() throws InterruptedException, ExecutionException 
 	{
-		ObserverDeCapteur.update(canal);
+		observerDeCapteur.update(canal);
 		return null; //FIXME retourner qqchose ici
 		
 	}
