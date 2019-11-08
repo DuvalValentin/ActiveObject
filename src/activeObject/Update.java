@@ -1,6 +1,7 @@
 package activeObject;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 
 public class Update<T> implements Callable<T> 
 {
@@ -14,7 +15,7 @@ public class Update<T> implements Callable<T>
 	}
 	
 	@Override
-	public T call() {
+	public T call() throws InterruptedException, ExecutionException {
 		// TODO Auto-generated method stub
 		afficheur.update(canal);
 		return null;

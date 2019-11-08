@@ -1,5 +1,7 @@
 package activeObject;
 
+import java.util.concurrent.ScheduledFuture;
+
 public class CapteurImpl implements Capteur {
 
 	//private AlgoDiffusion algo;
@@ -23,7 +25,7 @@ public class CapteurImpl implements Capteur {
 	}
 
 	@Override
-	public Integer getValue() {
+	public ScheduledFuture<Integer> getValue() {
 		// TODO Auto-generated method stub
 		return null;
 	}

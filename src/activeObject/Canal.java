@@ -1,6 +1,8 @@
 package activeObject;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 public class Canal implements Capteur,ObserverdeCapteur
@@ -32,11 +34,12 @@ public class Canal implements Capteur,ObserverdeCapteur
 	}
 
 	@Override
-	public Integer getValue() 
+	public ScheduledFuture<Integer> getValue()
 	{
-		new GetValue();
+		GetValue getValue = new GetValue();
+		return this.scheduler.schedule(getValue, 0, TimeUnit.MILLISECONDS);
 		// TODO Auto-generated method stub
-		return null;
+		//return null;
 	}
 
 	@Override
