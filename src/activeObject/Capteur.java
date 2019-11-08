@@ -1,9 +1,11 @@
 package activeObject;
 
+import java.util.concurrent.ScheduledFuture;
+
 public interface Capteur 
 {
 	void attach(ObserverdeCapteur o);
 	void detach(ObserverdeCapteur o);
-	Integer getValue();
+	ScheduledFuture<Integer> getValue();
 	void tick();
 }
