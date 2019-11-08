@@ -4,8 +4,8 @@ import java.util.concurrent.ExecutionException;
 
 public interface Capteur 
 {
-	void attach(ObserverdeCapteur o);
-	void detach(ObserverdeCapteur o);
+	void attach(ObserverDeCapteur o);
+	void detach(ObserverDeCapteur o);
 	Integer getValue() throws InterruptedException, ExecutionException;
 	void tick();
 }

@@ -2,23 +2,12 @@ package activeObject;
 
 import java.util.concurrent.ExecutionException;
 
-public class Afficheur implements ObserverdeCapteur,ObserverDeCanal{
+public class Afficheur implements ObserverDeCapteur{
 	private Integer value;
-	
-
-
 
 	@Override
-	public void update(Capteur c) 
+	public void update(Capteur c) throws InterruptedException, ExecutionException 
 	{
-		// TODO Auto-generated method stub
-		//canal.getValue(c);
-	}
-
-
-
-	@Override
-	public void update(Canal c) throws InterruptedException, ExecutionException {
 		value=c.getValue();
 		System.out.println(value);
 	}

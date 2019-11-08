@@ -3,22 +3,22 @@ package activeObject;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
-public class Update<T> implements Callable<T> 
+public class Update implements Callable<Integer> //FIXME régler le type d'update
 {
 	private Canal canal ;
-	private Afficheur afficheur;
+	private ObserverDeCapteur ObserverDeCapteur;
 	
-	public Update(Canal canal, Afficheur afficheur) {
+	public Update(Canal canal, ObserverDeCapteur observerDeCapteur) 
+	{
 		this.canal=canal;
-		this.afficheur=afficheur;
-		// TODO Auto-generated constructor stub
+		this.ObserverDeCapteur=observerDeCapteur;
 	}
 	
 	@Override
-	public T call() throws InterruptedException, ExecutionException {
-		// TODO Auto-generated method stub
-		afficheur.update(canal);
-		return null;
+	public Integer call() throws InterruptedException, ExecutionException 
+	{
+		ObserverDeCapteur.update(canal);
+		return null; //FIXME retourner qqchose ici
 		
 	}
 	

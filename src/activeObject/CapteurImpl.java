@@ -1,27 +1,30 @@
 package activeObject;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ExecutionException;
+
 public class CapteurImpl implements Capteur {
 
 	//private AlgoDiffusion algo;
-	private Canal canal;
 	private Integer value;
-	
-	public CapteurImpl(/*AlgoDiffusion algo*/Canal canal) 
+	private Set<ObserverDeCapteur> observers;
+	public CapteurImpl(/*AlgoDiffusion algo*/) 
 	{
 		//this.algo=algo;
-		this.canal=canal;
-		this.value=100;
+		this.value=0;
+		observers=new HashSet<ObserverDeCapteur>();
 	}
 	@Override
-	public void attach(ObserverdeCapteur o) {
-		// TODO Auto-generated method stub
-		
+	public void attach(ObserverDeCapteur o) 
+	{
+		observers.add(o);
 	}
 
 	@Override
-	public void detach(ObserverdeCapteur o) {
-		// TODO Auto-generated method stub
-		
+	public void detach(ObserverDeCapteur o) 
+	{
+		observers.remove(o);
 	}
 
 	@Override
@@ -33,8 +36,19 @@ public class CapteurImpl implements Capteur {
 	@Override
 	public void tick() 
 	{
-		//algo.execute();
-		canal.update(this);
+		for(ObserverDeCapteur observer:observers)
+		{
+			try {
+				observer.update(this);
+			} catch (InterruptedException e) 
+			{
+				e.printStackTrace();
+			} catch (ExecutionException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+		value++;
 	}
 
 }

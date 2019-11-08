@@ -1,37 +1,42 @@
 package activeObject;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class Canal implements Capteur,ObserverdeCapteur
+public class Canal implements Capteur,ObserverDeCapteur
 {
 	private ScheduledExecutorService scheduler;
-	private Afficheur afficheur;
 	private Capteur capteur;
+	private Set<ObserverDeCapteur> observers;
 	
-	public Canal(ScheduledExecutorService scheduler,Afficheur afficheur) 
+	public Canal(ScheduledExecutorService scheduler) 
 	{
 		this.scheduler=scheduler;
-		this.afficheur=afficheur;
+		observers = new HashSet<ObserverDeCapteur>();
 	}
 	public void update(Capteur c)
 	{
-		this.capteur=c;
-		Update<Capteur> update = new Update<Capteur>(this,afficheur);//FIXME mauvais type
-		this.scheduler.schedule(update,0 , TimeUnit.MILLISECONDS);
+		this.capteur=c;//FIXME pas fait au bon endroit
+		for(ObserverDeCapteur observer:observers)
+		{
+			Update update = new Update(this,observer);
+			this.scheduler.schedule(update,0 , TimeUnit.MILLISECONDS);
+		}
 	}
 
 	@Override
-	public void attach(ObserverdeCapteur o) {
-		// TODO Auto-generated method stub
-		
+	public void attach(ObserverDeCapteur o) 
+	{
+		observers.add(o);
 	}
 
 	@Override
-	public void detach(ObserverdeCapteur o) {
-		// TODO Auto-generated method stub
-		
+	public void detach(ObserverDeCapteur o) 
+	{
+		observers.remove(o);	
 	}
 
 	@Override
@@ -39,16 +44,11 @@ public class Canal implements Capteur,ObserverdeCapteur
 	{
 		GetValue getValue = new GetValue(capteur);
 		return this.scheduler.schedule(getValue, 0, TimeUnit.MILLISECONDS).get();
-		// TODO Auto-generated method stub
-		//return null;
 	}
 
 	@Override
-	public void tick() {
-		// TODO Auto-generated method stub
-		
+	public void tick() 
+	{
+		// TODO Aucune idée ici
 	}
-	
-	
-
 }
