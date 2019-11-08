@@ -1,16 +1,16 @@
 package activeObject;
 
-import java.util.concurrent.ScheduledFuture;
-
 public class CapteurImpl implements Capteur {
 
 	//private AlgoDiffusion algo;
-	private Canal canal; 
+	private Canal canal;
+	private Integer value;
 	
 	public CapteurImpl(/*AlgoDiffusion algo*/Canal canal) 
 	{
 		//this.algo=algo;
 		this.canal=canal;
+		this.value=100;
 	}
 	@Override
 	public void attach(ObserverdeCapteur o) {
@@ -25,9 +25,9 @@ public class CapteurImpl implements Capteur {
 	}
 
 	@Override
-	public ScheduledFuture<Integer> getValue() {
-		// TODO Auto-generated method stub
-		return null;
+	public Integer getValue() 
+	{
+		return value;
 	}
 
 	@Override

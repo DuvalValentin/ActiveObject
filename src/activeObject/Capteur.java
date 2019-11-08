@@ -1,11 +1,11 @@
 package activeObject;
 
-import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ExecutionException;
 
 public interface Capteur 
 {
 	void attach(ObserverdeCapteur o);
 	void detach(ObserverdeCapteur o);
-	ScheduledFuture<Integer> getValue();
+	Integer getValue() throws InterruptedException, ExecutionException;
 	void tick();
 }
