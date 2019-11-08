@@ -21,4 +21,10 @@ public class DiffusionAtomique implements AlgoDiffusion
 		// TODO Auto-generated method stub
 	}
 
+	@Override
+	public Integer getvalue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
