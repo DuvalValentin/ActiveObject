@@ -18,12 +18,10 @@ public class Main {
 		DiffusionAtomique diffusionAtomique=new DiffusionAtomique(canals);
 		Capteur capteur = new CapteurImpl(diffusionAtomique);
 		
-		
 		Afficheur afficheur1 = new Afficheur();
 		Afficheur afficheur2 = new Afficheur();
 		
 		//capteur.attach(canal);
-		
 		canal1.attach(afficheur1);
 		canal2.attach(afficheur2);
 		

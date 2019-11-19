@@ -6,20 +6,19 @@ import java.util.concurrent.ExecutionException;
 public class Update implements Callable<Void>
 {
 	private Canal canal ;
-	private ObserverDeCapteur ObserverDeCapteur;
+	private ObserverDeCapteur observerDeCapteur;
 	
 	public Update(Canal canal, ObserverDeCapteur observerDeCapteur) 
 	{
 		this.canal=canal;
-		this.ObserverDeCapteur=observerDeCapteur;
+		this.observerDeCapteur=observerDeCapteur;
 	}
 	
 	@Override
 	public Void call() throws InterruptedException, ExecutionException 
 	{
-		ObserverDeCapteur.update(canal);
-		return null;
-		
+		observerDeCapteur.update(canal);
+		return null; //FIXME retourner qqchose ici
 	}
 	
 
