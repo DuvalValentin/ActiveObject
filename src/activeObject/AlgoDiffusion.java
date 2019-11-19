@@ -3,6 +3,6 @@ package activeObject;
 public interface AlgoDiffusion 
 {
 	void configure();
-	void execute();
-	Integer getvalue();
+	void execute(Capteur c);
+	Integer getValue();
 }

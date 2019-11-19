@@ -1,8 +1,9 @@
 package activeObject;
 
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ScheduledFuture;
 
 public interface ObserverDeCapteur
 {
-	void update(Capteur c) throws InterruptedException, ExecutionException;
+	ScheduledFuture<Void> update(Capteur c) throws InterruptedException, ExecutionException;
 }

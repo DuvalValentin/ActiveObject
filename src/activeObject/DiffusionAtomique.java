@@ -1,12 +1,18 @@
 package activeObject;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ScheduledFuture;
+
 public class DiffusionAtomique implements AlgoDiffusion  
 {
-	private Canal canal;
+	private Set<Canal> canals;
+	private Capteur capteur;
 	
-	public DiffusionAtomique(Canal canal) 
+	public DiffusionAtomique(Set<Canal> canals) 
 	{
-		this.canal=canal;
+		this.canals=canals;
 	}
 
 	@Override
@@ -16,15 +22,43 @@ public class DiffusionAtomique implements AlgoDiffusion
 	}
 
 	@Override
-	public void execute() 
+	public void execute(Capteur c) 
 	{
-		// TODO Auto-generated method stub
+		capteur=c;
+		Set<ScheduledFuture<Void>> futures = new HashSet<ScheduledFuture<Void>>();
+		for(Canal canal : canals)
+		{
+			futures.add(canal.update(capteur));
+		}
+		
+		for(ScheduledFuture<Void> future : futures)
+		{
+			try {
+				future.get();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override
-	public Integer getvalue() {
-		// TODO Auto-generated method stub
-		return null;
+	public Integer getValue() 
+	{
+		Integer value = null;
+		try {
+			value =  capteur.getValue();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return value;
 	}
 
 }

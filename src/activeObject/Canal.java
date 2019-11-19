@@ -1,42 +1,37 @@
 package activeObject;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 public class Canal implements Capteur,ObserverDeCapteur
 {
 	private ScheduledExecutorService scheduler;
 	private Capteur capteur;
-	private Set<ObserverDeCapteur> observers;
+	private ObserverDeCapteur observer;
 	
 	public Canal(ScheduledExecutorService scheduler) 
 	{
 		this.scheduler=scheduler;
-		observers = new HashSet<ObserverDeCapteur>();
 	}
-	public void update(Capteur c)
+	public ScheduledFuture<Void> update(Capteur c)
 	{
-		this.capteur=c;//FIXME pas fait au bon endroit
-		for(ObserverDeCapteur observer:observers)
-		{
-			Update update = new Update(this,observer);
-			this.scheduler.schedule(update,0 , TimeUnit.MILLISECONDS);
-		}
+		capteur=c;//FIXME pas fait au bon endroit
+		Update update = new Update(this,observer);
+		return scheduler.schedule(update,0 , TimeUnit.MILLISECONDS);
 	}
 
 	@Override
 	public void attach(ObserverDeCapteur o) 
 	{
-		observers.add(o);
+		observer=o;
 	}
 
 	@Override
 	public void detach(ObserverDeCapteur o) 
 	{
-		observers.remove(o);	
+		observer=null;	
 	}
 
 	@Override
