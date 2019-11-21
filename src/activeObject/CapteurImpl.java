@@ -37,18 +37,10 @@ public class CapteurImpl implements Capteur {
 	{
 		value++;
 		algo.execute(this);
-			/*for(ObserverDeCapteur observer:observers)
-			{
-				try {
-					observer.update(this);
-				} catch (InterruptedException e) 
-				{
-					e.printStackTrace();
-				} catch (ExecutionException e) 
-				{
-					e.printStackTrace();
-				}
-			}*/
+	}
+	@Override
+	public AlgoDiffusion getAlgo() {
+		return algo;
 	}
 
 }

@@ -7,18 +7,18 @@ import java.util.concurrent.ScheduledFuture;
 
 public class DiffusionAtomique implements AlgoDiffusion  
 {
-	private Set<Canal> canals;
+	private Set<CanalImp> canals;
 	private Capteur capteur;
 	
-	public DiffusionAtomique(Set<Canal> canals) 
+	public DiffusionAtomique(Set<CanalImp> canals) 
 	{
 		this.canals=canals;
 	}
 
 	@Override
-	public void configure() {
+	public void configure() 
+	{
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class DiffusionAtomique implements AlgoDiffusion
 	{
 		capteur=c;
 		Set<ScheduledFuture<Void>> futures = new HashSet<ScheduledFuture<Void>>();
-		for(Canal canal : canals)
+		for(CanalImp canal : canals)
 		{
 			futures.add(canal.update(capteur));
 		}
@@ -36,10 +36,8 @@ public class DiffusionAtomique implements AlgoDiffusion
 			try {
 				future.get();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (ExecutionException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -48,17 +46,7 @@ public class DiffusionAtomique implements AlgoDiffusion
 	@Override
 	public Integer getValue() 
 	{
-		Integer value = null;
-		try {
-			value =  capteur.getValue();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return value;
+		return capteur.getValue();
 	}
 
 }

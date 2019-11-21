@@ -9,14 +9,14 @@ public class GetValue implements Callable<Integer>
 
 	public GetValue(Capteur capteur) 
 	{
-		this.capteur = capteur;
+		this.capteur=capteur;
 	}
 
 
 	@Override
 	public Integer call() throws Exception 
 	{
-		return capteur.getValue();
+		return capteur.getAlgo().getValue();
 	}
 
 }
