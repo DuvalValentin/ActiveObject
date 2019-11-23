@@ -18,7 +18,7 @@ public class Update implements Callable<Void>
 	public Void call() throws InterruptedException, ExecutionException 
 	{
 		observerDeCanal.update(canal);
-		return null; //FIXME retourner qqchose ici
+		return null;
 	}
 	
 
