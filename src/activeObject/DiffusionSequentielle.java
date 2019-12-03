@@ -38,7 +38,7 @@ public class DiffusionSequentielle implements AlgoDiffusion
 			while(!future.isDone()){}//FIXME ici ça bloque
 		}
 			
-		System.out.println("Fin");
+		System.out.println("Salut");
 	}
 	
 	@Override
