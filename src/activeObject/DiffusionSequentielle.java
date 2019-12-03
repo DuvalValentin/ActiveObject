@@ -9,10 +9,12 @@ public class DiffusionSequentielle implements AlgoDiffusion
 	private Set<CanalImp> canals;
 	private Capteur capteur;
 	private Integer value;
+	private int i;
 	
 	public DiffusionSequentielle(Set<CanalImp> canals) 
 	{
 		this.canals=canals;
+		this.i=0;
 	}
 
 	@Override
@@ -31,14 +33,20 @@ public class DiffusionSequentielle implements AlgoDiffusion
 		for(CanalImp canal : canals)
 		{
 			futures.add(canal.update(capteur));
+			this.i++;
+			if(i==2) {
+			for(ScheduledFuture<Void> future : futures)
+			{
+				while(!future.isDone()){}//FIXME ici ça bloque
+			}
+			this.i=0;
+			}
+			
 		}
 		
-		for(ScheduledFuture<Void> future : futures)
-		{
-			while(!future.isDone()){}//FIXME ici ça bloque
-		}
+		
 			
-		System.out.println("Fin");
+		System.out.println("coucou");
 	}
 	
 	@Override
