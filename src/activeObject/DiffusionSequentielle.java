@@ -46,7 +46,9 @@ public class DiffusionSequentielle implements AlgoDiffusion
 		
 		
 			
-		System.out.println("coucou");
+
+		System.out.println("fin");
+
 	}
 	
 	@Override
