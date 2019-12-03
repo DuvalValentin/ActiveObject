@@ -37,6 +37,7 @@ public class CapteurImpl implements Capteur {
 	{
 		value++;
 		algo.execute(this);
+		System.out.print("");//Juste pour que ça prenne un peu plus de temps
 	}
 	@Override
 	public AlgoDiffusion getAlgo() {

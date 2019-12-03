@@ -9,12 +9,16 @@ public class DiffusionSequentielle implements AlgoDiffusion
 	private Set<CanalImp> canals;
 	private Capteur capteur;
 	private Integer value;
-	private int i;
+	private boolean executing;
+	private int compteur;
+	private int nbCanaux;
 	
 	public DiffusionSequentielle(Set<CanalImp> canals) 
 	{
 		this.canals=canals;
-		this.i=0;
+		this.executing=false;
+		this.compteur=0;
+		this.nbCanaux=canals.size();
 	}
 
 	@Override
@@ -26,34 +30,29 @@ public class DiffusionSequentielle implements AlgoDiffusion
 	@Override
 	public void execute(Capteur c) 
 	{	
-		System.out.println("Début");
-		this.capteur=c;
-		value = capteur.getValue();
-		Set<ScheduledFuture<Void>> futures = new HashSet<ScheduledFuture<Void>>();
-		for(CanalImp canal : canals)
+		if(!executing)
 		{
-			futures.add(canal.update(capteur));
-			this.i++;
-			if(i==2) {
-			for(ScheduledFuture<Void> future : futures)
+			executing=true;
+			this.capteur=c;
+			value = capteur.getValue();
+			Set<ScheduledFuture<Void>> futures = new HashSet<ScheduledFuture<Void>>();
+			for(CanalImp canal : canals)
 			{
-				while(!future.isDone()){}//FIXME ici ça bloque
+				futures.add(canal.update(capteur));
 			}
-			this.i=0;
-			}
-			
 		}
-		
-		
-			
-
-		System.out.println("fin");
-
 	}
 	
 	@Override
 	public Integer getValue() 
 	{
+		compteur++;
+		if(compteur==nbCanaux)
+		{
+			compteur=0;
+			executing=false;
+		}
+		
 		return value;
 	}
 }

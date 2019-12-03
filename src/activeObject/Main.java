@@ -17,19 +17,20 @@ public class Main {
 		Set<CanalImp> canals = new HashSet<CanalImp>();
 		canals.add(canal1);
 		canals.add(canal2);
-		//DiffusionAtomique diffusionAtomique=new DiffusionAtomique(canals);
+		DiffusionAtomique diffusionAtomique=new DiffusionAtomique(canals);
 		DiffusionSequentielle diffusionSequentielle=new DiffusionSequentielle(canals);
-		//Capteur capteur1 = new CapteurImpl(diffusionAtomique);
+		Capteur capteur1 = new CapteurImpl(diffusionAtomique);
 		Capteur capteur2 = new CapteurImpl(diffusionSequentielle);
 		
 		
 		
-		/*
+		System.out.println("Diffusion Atomique");
 		for(int i =0;i<10;i++)
 		{
 			capteur1.tick();
-		}*/
-		for(int i =0;i<10;i++)
+		}
+		System.out.println("Diffusion Séquentielle");
+		for(int i =0;i<10000000;i++)
 		{
 			capteur2.tick();
 		}
