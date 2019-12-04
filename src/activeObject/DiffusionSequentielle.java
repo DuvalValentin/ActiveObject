@@ -6,39 +6,38 @@ import java.util.concurrent.ScheduledFuture;
 
 public class DiffusionSequentielle implements AlgoDiffusion 
 {
-	private Set<CanalImp> canals;
 	private Capteur capteur;
 	private Integer value;
 	private boolean executing;
 	private int compteur;
 	private int nbCanaux;
 	
-	public DiffusionSequentielle(Set<CanalImp> canals) 
+	public DiffusionSequentielle() 
 	{
-		this.canals=canals;
 		this.executing=false;
-		this.compteur=0;
-		this.nbCanaux=canals.size();
+		compteur=0;
 	}
 
 	@Override
-	public void configure() 
+	public void configure(Capteur capteur) 
 	{
-		// TODO Auto-generated method stub
+		this.capteur=capteur;
+		capteur.setAlgo(this);
 	}
 
 	@Override
-	public void execute(Capteur c) 
+	public void execute() 
 	{	
 		if(!executing)
 		{
 			executing=true;
-			this.capteur=c;
+			Set<ObserverDeCapteur> observerDeCapteurs=capteur.getObervers();
+			nbCanaux=observerDeCapteurs.size();
 			value = capteur.getValue();
 			Set<ScheduledFuture<Void>> futures = new HashSet<ScheduledFuture<Void>>();
-			for(CanalImp canal : canals)
+			for(ObserverDeCapteur observerDeCapteur : observerDeCapteurs)
 			{
-				futures.add(canal.update(capteur));
+				futures.add(observerDeCapteur.update(capteur));
 			}
 		}
 	}

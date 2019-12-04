@@ -1,5 +1,7 @@
 package activeObject;
 
+import java.util.Set;
+
 public interface Capteur 
 {
 	
@@ -12,6 +14,7 @@ public interface Capteur
 	 * supprimé  l'observeur de notre liste observeurs  
 	 */
 	void detach(ObserverDeCapteur o);
+	Set<ObserverDeCapteur> getObervers();
 	
 	/**
 	 *@return  valeur du capteur
@@ -22,9 +25,12 @@ public interface Capteur
 	 */
 	void tick();
 	
+	
+	
 	/**
 	 * 
 	 * @return lago de diffusion
 	 */
 	AlgoDiffusion getAlgo();
+	void setAlgo(AlgoDiffusion algo);
 }

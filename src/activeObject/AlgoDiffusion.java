@@ -2,7 +2,7 @@ package activeObject;
 
 public interface AlgoDiffusion 
 {
-	void configure();
-	void execute(Capteur c);
+	void configure(Capteur c);
+	void execute();
 	Integer getValue();
 }

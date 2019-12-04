@@ -21,12 +21,10 @@ public class CapteurImpl implements Capteur {
 	private Set<ObserverDeCapteur> observers;
 	
 	/**
-	 * Un constructeur avec un algoDiffusion en paramètre
-	 * @param algo
+	 *
 	 */
-	public CapteurImpl(AlgoDiffusion algo) 
+	public CapteurImpl() 
 	{
-		this.algo=algo;
 		this.value=0;
 		observers=new HashSet<ObserverDeCapteur>(); 
 	}
@@ -53,7 +51,7 @@ public class CapteurImpl implements Capteur {
 	public void tick() 
 	{
 		value++;
-		algo.execute(this);
+		algo.execute();
 		System.out.print("");//Juste pour que ça prenne un peu plus de temps
 	}
 	
@@ -62,5 +60,17 @@ public class CapteurImpl implements Capteur {
 	public AlgoDiffusion getAlgo() {
 		return algo;
 	}
+	
+	@Override
+	public void setAlgo(AlgoDiffusion algo) {
+		this.algo=algo;
+		
+	}
+	@Override
+	public Set<ObserverDeCapteur> getObervers() 
+	{
+		return observers;
+	}
+	
 
 }
