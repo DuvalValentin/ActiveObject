@@ -5,7 +5,7 @@ import java.util.concurrent.Callable;
 public class GetValue implements Callable<Integer>
 {
 	/**
-	  * 	Un capteur  à visibilité privé
+	  * 	Un capteur  
 	  */
 	private Capteur capteur;
 	
@@ -19,7 +19,7 @@ public class GetValue implements Callable<Integer>
 	}
 
 	/**
-	 * @return 
+	 * @return  la valeur de capteur 
 	 */
 	@Override
 	public Integer call() throws Exception 

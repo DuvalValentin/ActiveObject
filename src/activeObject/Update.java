@@ -5,15 +5,25 @@ import java.util.concurrent.ExecutionException;
 
 public class Update implements Callable<Void>
 {
-	private CanalImp canal ;
+	private Canal canal ;
 	private ObserverDeCanal observerDeCanal;
 	
-	public Update(CanalImp canal, ObserverDeCanal observerDeCanal) 
+	
+	/**
+	 * Un constructeur avec un canal et observeur de canal en paramètre
+	 * @param canal
+	 * @param observerDeCanal
+	*/
+	public Update(Canal canal, ObserverDeCanal observerDeCanal) 
 	{
 		this.canal=canal;
 		this.observerDeCanal=observerDeCanal;
 	}
 	
+	
+	/**
+	 * appelle la methode update sur le observer de canal 
+	 */
 	@Override
 	public Void call() throws InterruptedException, ExecutionException 
 	{

@@ -5,5 +5,11 @@ import java.util.concurrent.ScheduledFuture;
 
 public interface ObserverDeCanal
 {
-	ScheduledFuture<Void> update(CanalImp c) throws InterruptedException, ExecutionException;
+	/**
+	 * Effectue des actions en rapport avec le canal passé en paramètre
+	 * @param  canal 
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
+	ScheduledFuture<Void> update(Canal canal) throws InterruptedException, ExecutionException;
 }
