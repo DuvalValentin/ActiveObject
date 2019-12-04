@@ -6,7 +6,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 public class Main {
 
 	public static void main(String[] args) 
-	{
+	{  ////// on est bon
 		Capteur capteur1 = new CapteurImpl();
 		Capteur capteur2 = new CapteurImpl();
 		ScheduledExecutorService scheduler = new ScheduledThreadPoolExecutor(30);
