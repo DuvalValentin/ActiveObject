@@ -4,7 +4,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-
+/**
+ *Implémentation de l'interface Canal
+ */
 public class CanalImp implements Canal
 {
 	private ScheduledExecutorService scheduler;
@@ -16,9 +18,10 @@ public class CanalImp implements Canal
 		this.scheduler=scheduler;
 		this.observer=observer;
 	}
+	@Override
 	public ScheduledFuture<Void> update(Capteur capteur)
 	{
-		this.capteur=capteur;//FIXME pas fait au bon endroit
+		this.capteur=capteur;
 		Update update = new Update(this,observer);
 		return scheduler.schedule(update,100 , TimeUnit.MILLISECONDS);
 	}

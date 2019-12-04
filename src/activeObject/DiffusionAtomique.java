@@ -7,28 +7,25 @@ import java.util.concurrent.ScheduledFuture;
 
 public class DiffusionAtomique implements AlgoDiffusion  
 {
-	private Set<CanalImp> canals;
 	private Capteur capteur;
 	
-	public DiffusionAtomique(Set<CanalImp> canals) 
+	public DiffusionAtomique() {}
+
+	@Override
+	public void configure(Capteur capteur) 
 	{
-		this.canals=canals;
+		this.capteur=capteur;
+		capteur.setAlgo(this);
 	}
 
 	@Override
-	public void configure() 
+	public void execute() 
 	{
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void execute(Capteur c) 
-	{
-		capteur=c;
+		Set<ObserverDeCapteur> observerDeCapteurs = capteur.getObervers();
 		Set<ScheduledFuture<Void>> futures = new HashSet<ScheduledFuture<Void>>();
-		for(CanalImp canal : canals)
+		for(ObserverDeCapteur observerDeCapteur : observerDeCapteurs)
 		{
-			futures.add(canal.update(capteur));
+			futures.add(observerDeCapteur.update(capteur));
 		}
 		
 		for(ScheduledFuture<Void> future : futures)

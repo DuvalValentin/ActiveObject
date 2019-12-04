@@ -2,9 +2,16 @@ package activeObject;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledFuture;
-
-public interface Canal 
+/**
+ * Sert de proxy entre un capteur et un afficheur
+ */
+public interface Canal extends ObserverDeCapteur
 {
-	ScheduledFuture<Void> update(Capteur capteur);
+	/**
+	 * 
+	 * @return Une future qui contiendra la valeur du capteur
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
 	ScheduledFuture<Integer> getValue() throws InterruptedException, ExecutionException;
 }

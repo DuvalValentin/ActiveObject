@@ -1,7 +1,5 @@
 package activeObject;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 
@@ -9,19 +7,21 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
+		Capteur capteur1 = new CapteurImpl();
+		Capteur capteur2 = new CapteurImpl();
 		ScheduledExecutorService scheduler = new ScheduledThreadPoolExecutor(30);
 		Afficheur afficheur1 = new Afficheur();
 		Afficheur afficheur2 = new Afficheur();
 		CanalImp canal1 = new CanalImp(scheduler,afficheur1);
 		CanalImp canal2 = new CanalImp(scheduler,afficheur2);
-		Set<CanalImp> canals = new HashSet<CanalImp>();
-		canals.add(canal1);
-		canals.add(canal2);
-		DiffusionAtomique diffusionAtomique=new DiffusionAtomique(canals);
-		DiffusionSequentielle diffusionSequentielle=new DiffusionSequentielle(canals);
-		Capteur capteur1 = new CapteurImpl(diffusionAtomique);
-		Capteur capteur2 = new CapteurImpl(diffusionSequentielle);
-		
+		capteur1.attach(canal1);
+		capteur1.attach(canal2);
+		capteur2.attach(canal1);
+		capteur2.attach(canal2);
+		DiffusionAtomique diffusionAtomique=new DiffusionAtomique();
+		DiffusionSequentielle diffusionSequentielle=new DiffusionSequentielle();
+		diffusionAtomique.configure(capteur1);
+		diffusionSequentielle.configure(capteur2);
 		
 		
 		System.out.println("Diffusion Atomique");
@@ -34,6 +34,6 @@ public class Main {
 		{
 			capteur2.tick();
 		}
-		
+		scheduler.shutdown();
 	}
 }

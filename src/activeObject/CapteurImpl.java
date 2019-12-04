@@ -8,9 +8,8 @@ public class CapteurImpl implements Capteur {
 	private AlgoDiffusion algo;
 	private Integer value;
 	private Set<ObserverDeCapteur> observers;
-	public CapteurImpl(AlgoDiffusion algo) 
+	public CapteurImpl() 
 	{
-		this.algo=algo;
 		this.value=0;
 		observers=new HashSet<ObserverDeCapteur>();
 	}
@@ -36,12 +35,24 @@ public class CapteurImpl implements Capteur {
 	public void tick() 
 	{
 		value++;
-		algo.execute(this);
+		algo.execute();
 		System.out.print("");//Juste pour que ça prenne un peu plus de temps
 	}
 	@Override
 	public AlgoDiffusion getAlgo() {
 		return algo;
 	}
+	
+	@Override
+	public void setAlgo(AlgoDiffusion algo) {
+		this.algo=algo;
+		
+	}
+	@Override
+	public Set<ObserverDeCapteur> getObervers() 
+	{
+		return observers;
+	}
+	
 
 }
