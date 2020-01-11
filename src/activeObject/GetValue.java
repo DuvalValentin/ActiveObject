@@ -2,10 +2,17 @@ package activeObject;
 
 import java.util.concurrent.Callable;
 
+
+/**
+ * Retourne la valeur du capteur renvoyée par l'algorithme de diffusion lorsque call() est appellée
+ * @author Valentin
+ * @author Fares
+ * 
+ */
 public class GetValue implements Callable<Integer>
 {
 	/**
-	  * 	Un capteur  
+	  * 	Le capteur dont on doit récupérer la valeur
 	  */
 	private Capteur capteur;
 	
@@ -24,7 +31,7 @@ public class GetValue implements Callable<Integer>
 	@Override
 	public Integer call() throws Exception 
 	{
-		return capteur.getAlgo().getValue();
+		return capteur.getAlgorithme().getValue();
 	}
 
 }

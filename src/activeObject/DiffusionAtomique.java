@@ -4,9 +4,16 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledFuture;
-
-public class DiffusionAtomique implements AlgoDiffusion  
+/**
+ * Diffusion empêchant au Capteur de ce mettre à jour  temps que les afficheur n'ont pas affiché la valeur du capteur
+ * @author Valentin
+ * @author Fares
+ */
+public class DiffusionAtomique implements AlgorithmeDiffusion  
 {
+	/**
+	 * Capteur dont on doit diffuser la valeur
+	 */
 	private Capteur capteur;
 	
 	public DiffusionAtomique() {}

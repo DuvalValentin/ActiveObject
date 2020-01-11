@@ -1,12 +1,19 @@
-package activeObject;
+package main;
 
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 
+import activeObject.Afficheur;
+import activeObject.CanalImp;
+import activeObject.Capteur;
+import activeObject.CapteurImpl;
+import activeObject.DiffusionAtomique;
+import activeObject.DiffusionSequentielle;
+
 public class Main {
 
 	public static void main(String[] args) 
-	{  ////// on est bon
+	{ 
 		Capteur capteur1 = new CapteurImpl();
 		Capteur capteur2 = new CapteurImpl();
 		ScheduledExecutorService scheduler = new ScheduledThreadPoolExecutor(30);

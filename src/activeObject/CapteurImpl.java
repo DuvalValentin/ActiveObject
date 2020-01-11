@@ -3,12 +3,17 @@ package activeObject;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Implémentation de l'interface Capteur
+ * @author Valentin
+ * @author Fares
+ */
 public class CapteurImpl implements Capteur {
 	
 	/**
 	  * Un algo de diffusion  à visibilité privé
 	  */
-	private AlgoDiffusion algo;
+	private AlgorithmeDiffusion algo;
 	
 	/**
 	 * Un Integer  à visibilité privé
@@ -20,9 +25,6 @@ public class CapteurImpl implements Capteur {
 	  */
 	private Set<ObserverDeCapteur> observers;
 	
-	/**
-	 *
-	 */
 	public CapteurImpl() 
 	{
 		this.value=0;
@@ -57,12 +59,12 @@ public class CapteurImpl implements Capteur {
 	
 	
 	@Override
-	public AlgoDiffusion getAlgo() {
+	public AlgorithmeDiffusion getAlgorithme() {
 		return algo;
 	}
 	
 	@Override
-	public void setAlgo(AlgoDiffusion algo) {
+	public void setAlgo(AlgorithmeDiffusion algo) {
 		this.algo=algo;
 		
 	}

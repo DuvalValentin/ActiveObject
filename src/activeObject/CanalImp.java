@@ -5,12 +5,20 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 /**
- *Implémentation de l'interface Canal
+ * Implémentation de l'interface Canal
+ * @author Valentin
+ * @author Fares
  */
 public class CanalImp implements Canal
 {
 	private ScheduledExecutorService scheduler;
+	/**
+	 * Le capteur observé par le canal
+	 */
 	private Capteur capteur;
+	/**
+	 * L'observeur du canal
+	 */
 	private ObserverDeCanal observer;
 	
 	public CanalImp(ScheduledExecutorService scheduler,ObserverDeCanal observer) 

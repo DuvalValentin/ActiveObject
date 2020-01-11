@@ -2,7 +2,11 @@ package activeObject;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledFuture;
-
+/**
+ * Un Observer de Canal
+ * @author Valentin
+ * @author Fares
+ */
 public interface ObserverDeCanal
 {
 	/**

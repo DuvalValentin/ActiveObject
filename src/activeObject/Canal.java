@@ -4,6 +4,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledFuture;
 /**
  * Sert de proxy entre un capteur et un afficheur
+ * @author Valentin
+ * @author Fares
  */
 public interface Canal extends ObserverDeCapteur
 {
