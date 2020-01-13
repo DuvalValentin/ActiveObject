@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-13T15:25:48</date>
+  <millis>1578925548496</millis>
+  <sequence>0</sequence>
+  <level>INFO</level>
+  <class>main.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Diffusion Atomique</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:48</date>
+  <millis>1578925548732</millis>
+  <sequence>1</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>10</thread>
+  <message>Afficheur 2 : 1</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:48</date>
+  <millis>1578925548733</millis>
+  <sequence>2</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>11</thread>
+  <message>Afficheur 1 : 1</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:48</date>
+  <millis>1578925548936</millis>
+  <sequence>3</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>10</thread>
+  <message>Afficheur 1 : 2</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:48</date>
+  <millis>1578925548936</millis>
+  <sequence>4</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>13</thread>
+  <message>Afficheur 2 : 2</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:49</date>
+  <millis>1578925549141</millis>
+  <sequence>5</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>14</thread>
+  <message>Afficheur 2 : 3</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:49</date>
+  <millis>1578925549142</millis>
+  <sequence>6</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>15</thread>
+  <message>Afficheur 1 : 3</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:49</date>
+  <millis>1578925549349</millis>
+  <sequence>7</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>12</thread>
+  <message>Afficheur 2 : 4</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:49</date>
+  <millis>1578925549350</millis>
+  <sequence>8</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>11</thread>
+  <message>Afficheur 1 : 4</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:49</date>
+  <millis>1578925549557</millis>
+  <sequence>9</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>18</thread>
+  <message>Afficheur 2 : 5</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:49</date>
+  <millis>1578925549558</millis>
+  <sequence>10</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>19</thread>
+  <message>Afficheur 1 : 5</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:49</date>
+  <millis>1578925549766</millis>
+  <sequence>11</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>17</thread>
+  <message>Afficheur 2 : 6</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:49</date>
+  <millis>1578925549767</millis>
+  <sequence>12</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>16</thread>
+  <message>Afficheur 1 : 6</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:49</date>
+  <millis>1578925549974</millis>
+  <sequence>13</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>22</thread>
+  <message>Afficheur 2 : 7</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:49</date>
+  <millis>1578925549975</millis>
+  <sequence>14</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>23</thread>
+  <message>Afficheur 1 : 7</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:50</date>
+  <millis>1578925550181</millis>
+  <sequence>15</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>10</thread>
+  <message>Afficheur 2 : 8</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:50</date>
+  <millis>1578925550181</millis>
+  <sequence>16</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>13</thread>
+  <message>Afficheur 1 : 8</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:50</date>
+  <millis>1578925550389</millis>
+  <sequence>17</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>26</thread>
+  <message>Afficheur 2 : 9</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:50</date>
+  <millis>1578925550389</millis>
+  <sequence>18</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>27</thread>
+  <message>Afficheur 1 : 9</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:50</date>
+  <millis>1578925550600</millis>
+  <sequence>19</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>21</thread>
+  <message>Afficheur 2 : 10</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:50</date>
+  <millis>1578925550600</millis>
+  <sequence>20</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>20</thread>
+  <message>Afficheur 1 : 10</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:50</date>
+  <millis>1578925550606</millis>
+  <sequence>21</sequence>
+  <level>INFO</level>
+  <class>main.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Diffusion Séquentielle</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:50</date>
+  <millis>1578925550811</millis>
+  <sequence>22</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>30</thread>
+  <message>Afficheur 1 : 1</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:50</date>
+  <millis>1578925550811</millis>
+  <sequence>23</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>31</thread>
+  <message>Afficheur 2 : 1</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:51</date>
+  <millis>1578925551011</millis>
+  <sequence>24</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>15</thread>
+  <message>Afficheur 2 : 1464090</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:51</date>
+  <millis>1578925551011</millis>
+  <sequence>25</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>14</thread>
+  <message>Afficheur 1 : 1464090</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:51</date>
+  <millis>1578925551212</millis>
+  <sequence>26</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>36</thread>
+  <message>Afficheur 1 : 3195908</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:51</date>
+  <millis>1578925551214</millis>
+  <sequence>27</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>35</thread>
+  <message>Afficheur 2 : 3195908</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:51</date>
+  <millis>1578925551414</millis>
+  <sequence>28</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>24</thread>
+  <message>Afficheur 2 : 4984955</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:51</date>
+  <millis>1578925551414</millis>
+  <sequence>29</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>22</thread>
+  <message>Afficheur 1 : 4984955</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:51</date>
+  <millis>1578925551614</millis>
+  <sequence>31</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>39</thread>
+  <message>Afficheur 2 : 6782179</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:51</date>
+  <millis>1578925551614</millis>
+  <sequence>30</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>11</thread>
+  <message>Afficheur 1 : 6782179</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:51</date>
+  <millis>1578925551815</millis>
+  <sequence>32</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>13</thread>
+  <message>Afficheur 2 : 8570755</message>
+</record>
+<record>
+  <date>2020-01-13T15:25:51</date>
+  <millis>1578925551815</millis>
+  <sequence>33</sequence>
+  <level>INFO</level>
+  <class>activeObject.Afficheur</class>
+  <method>update</method>
+  <thread>29</thread>
+  <message>Afficheur 1 : 8570755</message>
+</record>

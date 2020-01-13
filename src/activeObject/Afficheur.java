@@ -2,6 +2,9 @@ package activeObject;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledFuture;
+import java.util.logging.Logger;
+
+import main.Main;
 /**
  * Affiche les valeurs d'un capteur
  * @author Valentin
@@ -13,6 +16,8 @@ public class Afficheur implements ObserverDeCanal
 	 * Nombre d'instances de cette classe créés
 	 */
 	private static int nombreAfficheurs=0;
+	
+	public static final Logger logger=Main.logger;
 	/**
 	 * Numéro de l'afficheur
 	 */
@@ -25,6 +30,7 @@ public class Afficheur implements ObserverDeCanal
 	{
 		nombreAfficheurs++;
 		id=nombreAfficheurs;
+		
 	}
 	
 	/**
@@ -41,7 +47,8 @@ public class Afficheur implements ObserverDeCanal
 	public ScheduledFuture<Void> update(Canal canal) throws InterruptedException, ExecutionException 
 	{
 		value=canal.getValue().get();
-		System.out.println(this+" : "+value);
+		String message = this+" : "+value;
+		logger.info(message);
 		return null;
 	}
 	/**

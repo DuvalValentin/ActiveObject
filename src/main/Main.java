@@ -1,7 +1,10 @@
 package main;
 
+import java.io.IOException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
 
 import activeObject.Afficheur;
 import activeObject.CanalImp;
@@ -11,9 +14,12 @@ import activeObject.DiffusionAtomique;
 import activeObject.DiffusionSequentielle;
 
 public class Main {
+	
+	public static final Logger logger=Logger.getAnonymousLogger();
 
 	public static void main(String[] args) 
 	{ 
+		addHandler();
 		Capteur capteur1 = new CapteurImpl();
 		Capteur capteur2 = new CapteurImpl();
 		ScheduledExecutorService scheduler = new ScheduledThreadPoolExecutor(30);
@@ -31,16 +37,34 @@ public class Main {
 		diffusionSequentielle.configure(capteur2);
 		
 		
-		System.out.println("Diffusion Atomique");
+		logger.info("Diffusion Atomique");
 		for(int i =0;i<10;i++)
 		{
 			capteur1.tick();
 		}
-		System.out.println("Diffusion Séquentielle");
+		logger.info("Diffusion Séquentielle");
 		for(int i =0;i<10000000;i++)
 		{
 			capteur2.tick();
 		}
 		scheduler.shutdown();
+	}
+	
+	private static void addHandler()
+	{
+		FileHandler fh;
+		try 
+		{
+			fh = new FileHandler("./info/Logger/Afficheur.xml", true);
+			logger.addHandler(fh);
+		}
+		catch (SecurityException e) 
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 }
